@@ -1,6 +1,6 @@
 # 管线看板
 
-> 最后更新：2026-07-15（第十四轮：Tauri 原生桌面 IDEA-018 交付） | 维护人：项目秘书
+> 最后更新：2026-07-15（第十七轮：全量交付，想法池归零） | 维护人：项目秘书
 > 数据来源：需求对话 + 调研报告 + Reasonix 源码分析 + DeepSeek API 文档
 
 ---
@@ -9,7 +9,7 @@
 
 | 💡 想法池 | 📝 规划中 | 🔨 开发中 | ✅ 验收中 | 🚀 已发布 | ❌ 废弃 |
 |-----------|-----------|-----------|-----------|-----------|---------|
-| 3 项 | 0 项 | 0 项 | 0 项 | 6 项 | 1 项 |
+| 0 项 | 0 项 | 0 项 | 0 项 | 12 项 | 1 项 |
 
 ---
 
@@ -121,33 +121,40 @@
 - **状态**：✅ **已交付 vA.0.1**（Tauri v2 构建成功，8.4MB 原生 exe）
 
 ### IDEA-020：智能查询路由 — HyDE 改写 + 意图分解
-- **来源**：架构讨论 — Dispatcher 增强
-- **描述**：Dispatcher 根据查询复杂度分流：简单指令直路由（不改写），长难句先用 HyDE 生成假想文档再路由，多轮复杂意图用 Decomp 拆分子意图并行路由
-- **关联**：IDEA-015 Dispatcher
 - **优先级**：P1
-- **状态**：等待 Spec
+- **状态**：✅ **已交付**（intent_router.py: classify_query + hyde_rewrite + decomp_intent）
 
 ### IDEA-021：熔断机制 + 漂移检测
-- **来源**：架构讨论 — "有防范查询漂移的熔断机制吗"
-- **描述**：新增 CircuitBreaker（三态：CLOSED/OPEN/HALF_OPEN，连续失败计数 + 指数退避）+ DriftDetector（Agent 输出校验：字段完整性/类型匹配/置信度阈值）
-- **关联**：LOOP SOP 降级触发规则
 - **优先级**：P1
-- **状态**：等待 Spec
+- **状态**：✅ **已交付**（circuit_breaker.py: CircuitBreaker + DriftDetector）
 
 ### IDEA-022：Agent Memory 体系重构（SQLite + Flash Summary + RAG）
-- **来源**：GPT/Gemini 记忆架构对照分析
-- **描述**：新增 MemoryManager（SQLite 持久化 + Flash LLM 摘要 + 对话记忆 RAG + Consolidator 记忆合并/老化），整合现有 CacheEngine / ContextPartitioner / EmbeddingIndex 为统一记忆管线
-- **关联**：IDEA-021 熔断（共享 Consolidator 老化机制）
-- **设计要点**：
-  - LocalStore：SQLite 三表（profiles / sessions / memory_log），零外部依赖
-  - MemoryRouter：working→immutable / summary→Flash / episodic→SQLite / semantic→EmbeddingIndex
-  - Consolidator：低价值记忆衰退 + 相似记忆融合
-- **优先级**：P0（核心架构）
-- **状态**：等待 Spec
+- **优先级**：P0
+- **状态**：✅ **已交付 vA.0.2**（MemoryManager + LocalStore + MemoryRouter + Consolidator）
+
+### IDEA-023：Agent 自定义显示名（非覆盖映射）
+- **优先级**：P1
+- **状态**：✅ **已交付**（ConfigManager.set_agent_display_name）
+
+### IDEA-024：Agent 模型分配自定义（Pro/Flash 覆盖）
+- **优先级**：P0
+- **状态**：✅ **已交付**（ConfigManager.agent_overrides.model）
+
+### IDEA-025：DS API Key + MCP Server 配置界面
+- **优先级**：P0
+- **状态**：✅ **已交付**（ConfigManager + config.json 持久化）
+
+### IDEA-026：工具白名单 & 用户自定义权限
+- **优先级**：P1
+- **状态**：✅ **已交付**（ConfigManager.agent_overrides.allow_tools / deny_tools）
+
+### IDEA-027：风险模式（God Mode）
+- **优先级**：P1
+- **状态**：✅ **已交付**（ConfigManager.enable_risk_mode / risk_mode_acknowledged_at）
 
 ## 📝 规划中
 
-> 待排期：IDEA-022 (P0) Memory / IDEA-020 (P1) HyDE / IDEA-021 (P1) 熔断
+> 所有想法池已清空 ✅
 
 ---
 
@@ -195,8 +202,10 @@
 
 | 版本 | 日期 | 内容 |
 |------|------|------|
+| vA.0.3 | 2026-07-15 | IDEA-025~027 配置+权限+风险模式 + IDEA-020 HyDE + IDEA-021 熔断，**想法池归零** |
+| vA.0.2 | 2026-07-15 | IDEA-022 Memory 体系重构（SQLite + MemoryRouter + Consolidator） |
 | vA.0.1 | 2026-07-15 | IDEA-018 真·Tauri 原生桌面（Rust 8.4MB exe + React invoke IPC） |
-| Alpha 0.1 | 2026-07-14 | 首个公开发布 — Tauri桌面壳 + 11 Agent + 完整SOP管道，**想法池归零** |
+| Alpha 0.1 | 2026-07-14 | 首个公开发布 — Tauri桌面壳 + 11 Agent + 完整SOP管道 |
 | v0.4.0 | 2026-07-14 | TASK-004 MCP工具集成 + DevOps Agent（2×P1交付） |
 | v0.3.0 | 2026-07-14 | TASK-003 Agent核心重构（body保留+双层prompt+Dispatcher+CR Agent，3×P0交付） |
 | v0.2.0 | 2026-07-13 | TASK-002 编排调度+状态管理+工作流+部署+cache-guard（5 想法交付） |

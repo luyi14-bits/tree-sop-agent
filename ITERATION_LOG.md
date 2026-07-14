@@ -83,3 +83,19 @@
 
 **迭代总结**：IDEA-017 交付。Tauri v2 项目脚手架 + Monaco Editor + xterm.js 终端 + React 前端 + Agent 调度面板。**想法池归零。LOOP 循环正常结束。**
 
+---
+
+## 迭代 6 (2026-07-15)
+
+| 阶段 | 状态 | 执行者 | 产出 | 缺陷数 | 门禁 |
+|------|:----:|--------|------|:------:|:----:|
+| 0 对齐 | ✅ | PM (Luyi14-pm-mentor) | PRD v0.1 | — | PASS |
+| 1 规划 | ✅ | Spec-Pipeline | spec.md + tasks.md + checklist.md | — | PASS |
+| 2 执行 | ✅ | Coding + TDD | MemoryManager + LocalStore + MemoryRouter + Consolidator | 0 | PASS |
+| 3 验证 | ✅ | Acceptance + Security | 验证通过 | 0 | PASS |
+| 4 收敛 | ✅ | Secretary | vA.0.2 快照 + 看板 | — | PASS |
+
+**迭代范围**：IDEA-022 — Memory 体系重构（LocalStore + MemoryRouter + Consolidator + Flash Summary）
+
+**迭代总结**：MemoryManager（SQLite 三表 + MemoryRouter 四通道 + Consolidator 合并/老化）交付。57/57 全绿。**想法池：8→7**。
+
