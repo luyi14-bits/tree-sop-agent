@@ -163,10 +163,10 @@ tree-sop-agent/
 | Phase 3–4 | 编排调度器 + 检查点 + 上下文压缩 | ✅ v0.2.0 |
 | Phase 5 | 完整 5 级 SOP 管道 + 自测 | ✅ v0.4.0 |
 | Phase 6 | Tauri 桌面应用壳 | ✅ v1.0.0 |
-| Phase 7 | 真·Tauri 原生桌面（IDEA-018 P0） | 🔄 开发中 |
-| Phase 8 | SQLite 持久记忆 + 跨 session RAG（IDEA-022 P0） | 💡 |
-| Phase 9 | CircuitBreaker + DriftDetector（IDEA-021 P1） | 💡 |
-| Phase 10 | HyDE 查询路由 + 生产级稳定（IDEA-020 P1） | 💡 |
+| Phase 7 | 真·Tauri 原生桌面（IDEA-018） | ✅ vA.0.1 |
+| Phase 8 | Memory 体系重构 + Config + 风险模式（IDEA-022/025/026/027） | ✅ vA.0.2 |
+| Phase 9 | HyDE 路由 + 熔断检测（IDEA-020/021） | ✅ vA.0.3 |
+| Phase 10 | 正式发布 + 用户验证 | 💡 |
 
 ---
 
