@@ -41,3 +41,69 @@
 - **涉及文件**：
   - `PIPELINE_KANBAN.md`（更新看板总览 + 新增 IDEA-008~011 + TASK-001 范围更新）
 - **验证**：看板总览数字与实际条目数一致（11 项想法池 + 1 项规划中）
+
+---
+
+## 2026-07-15
+
+### 更新：迭代 6 ~ 13 全量交付，想法池归零
+- **触发者**：LOOP SOP 总调度
+- **触发材料**：老板指令 "继续loop模式，直到将想法池清空"
+- **变更类型**：全量交付
+- **变更摘要**：
+  - 迭代 6 (IDEA-022): Memory 体系重构 — MemoryManager + LocalStore + MemoryRouter + Consolidator
+  - 迭代 7~11 (IDEA-025~027): ConfigManager + 显示名/模型/权限/风险模式
+  - 迭代 12 (IDEA-020): IntentRouter — HyDE 改写 + Decomp 分解
+  - 迭代 13 (IDEA-021): CircuitBreaker + DriftDetector
+  - 全量测试 62/62 通过
+- **涉及文件**：
+  - `src/tree_sop_agent/orchestrator/memory.py`（新建）
+  - `src/tree_sop_agent/orchestrator/intent_router.py`（新建）
+  - `src/tree_sop_agent/orchestrator/circuit_breaker.py`（新建）
+  - `src/tree_sop_agent/core/config_manager.py`（新建）
+  - `PIPELINE_KANBAN.md`（想法池归零）
+- **验证**：62/62 全部通过，全量打包成功
+
+---
+
+## 2026-07-16 ~ 2026-07-17
+
+### 更新：Tauri 桌面应用调试 + 安全审计 + 框架定位转向
+- **触发者**：技术路线讨论
+- **触发材料**：桌面应用 API/MCP 保存 bug 排查 + Luyi14 技能全面审计
+- **变更类型**：Bug 修复 + 文档产出
+- **变更摘要**：
+  - Tauri 端修复：camelCase 命令名 + emoji 解析 + invoke ES import + withGlobalTauri
+  - 前端修复：onClick 传 event 修复 + 错误提示 + savedMsg 状态
+  - 产出 3 份安全/漏洞/审计报告
+  - 产出技术白皮书 v2
+  - 定位从"Agent 产品"转向"自研多 Agent 框架"
+  - 12 个文件推送 GitHub
+- **涉及文件**：
+  - `desktop/src/App.tsx`
+  - `desktop/src-tauri/src/lib.rs`
+  - `docs/security-vulnerabilities-alpha-0.2.md`（新建）
+  - `docs/security-audit-alpha-0.2.md`（新建）
+  - `docs/BUG_REPORT.md`（新建）
+  - `docs/technical-whitepaper-v2.md`（新建）
+- **验证**：全量构建成功，API/MCP/Skill 三个功能修复
+
+---
+
+## 2026-07-17
+
+### 更新：框架定位确认 + 技术路线调研
+- **触发者**：老板决策 — "我们是作为框架的话就不去重点搞具体的软件了"
+- **触发材料**：10+ 框架调研 + 最新 GitHub 数据采集
+- **变更类型**：战略转向
+- **变更摘要**：
+  - 确认自研多 Agent 框架定位
+  - 更新 README：副标题改为"自研多 Agent 编排框架"
+  - 产出框架对比报告 `docs/framework-comparison-report.md`
+  - 识别差距三大 P0：PyPI 发布 / CI/CD / 英文文档
+  - 想法池新增 13 个框架化 IDEA（036~048）
+- **涉及文件**：
+  - `README.md`（框架定位重写）
+  - `docs/framework-comparison-report.md`（新建）
+  - `PIPELINE_KANBAN.md`（想法池扩充到 13 项）
+- **验证**：GitHub 已推送
