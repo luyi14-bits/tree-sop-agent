@@ -2,7 +2,7 @@
 
 # 🌲 Tree-SOP Agent
 
-**🏗️ 自研框架 — 群聊式多 Agent 软件开发工厂 —— 11 个角色、5 层记忆、硬约束 Harness**
+**🏗️ 自研多 Agent 编排框架 —— 13 个预设角色、4 层记忆、硬约束 Harness**
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
@@ -20,9 +20,11 @@
 
 ## 这是什么？
 
-Tree-SOP Agent 是一个**群聊式多 Agent 软件开发框架**。你像在群里发消息一样输入需求，11 个 AI 角色自动协作——从需求分析、架构评审、编码、测试到安全审计和部署，全流程自动完成。
+Tree-SOP Agent 是一个**自研的多 Agent 编排框架**，对标 CrewAI / MetaGPT / Superpowers / AutoGen。核心差异化在于**硬约束 Harness 层**（ToolGuard + LOOP SOP 5 级门禁）和**四层记忆体系**（CacheEngine → ContextPartitioner → EmbeddingIndex → SQLite）。
 
-**对标项目**：受 [Superpowers](https://github.com/obra/superpowers) (76k+★) 的 Skill→Agent 理念和 [CrewAI](https://github.com/crewAIInc/crewAI) 的角色编排模式启发，融入了自研的**硬约束 Harness 层**和**四层记忆体系**。
+**对标项目**：受 [Superpowers](https://github.com/superpowered-ai/superpowers) (258k+★) 的 Skill→Agent 理念和 [CrewAI](https://github.com/crewAIInc/crewAI) (55.8k+★) 的角色编排模式启发，融入了自研的**硬约束 Harness 层**和**四层记忆体系**。
+
+> 📊 完整 10+ 框架深度对比见 [框架对比技术报告](docs/framework-comparison-report.md)
 
 ```
 你: "帮我做一个登录功能，支持手机号+验证码"
