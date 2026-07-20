@@ -2,7 +2,7 @@
 
 # 🌲 Tree-SOP Agent
 
-**群聊式多 Agent 软件开发工厂 —— 11 个角色、5 层记忆、硬约束 Harness**
+**🏗️ 自研框架 — 群聊式多 Agent 软件开发工厂 —— 11 个角色、5 层记忆、硬约束 Harness**
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
@@ -148,7 +148,9 @@ tree-sop-agent/
 ├── skills/              # Agent 定义 SKILL.md + 留痕 LOG.md
 ├── desktop/             # Tauri v2 桌面应用壳
 ├── tests/               # pytest 测试套件（47 个测试）
-├── docs/                # 技术白皮书 · PRD · 框架调研
+├── docs/                # 技术白皮书 · 框架对比 · PRD · 安全审计
+│   ├── framework-comparison-report.md  # 自研框架 vs 10+ 竞品
+│   └── technical-whitepaper-v2.md      # Alpha 0.2 架构文档
 └── versions/            # 版本快照
 ```
 
