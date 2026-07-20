@@ -48,10 +48,10 @@ MemoryManager
 
 | 文件 | 改动 |
 |------|------|
-| `src/tree_sop_agent/core/__init__.py` | 导出 MemoryManager |
-| `src/tree_sop_agent/orchestrator/memory.py` | **新建** — MemoryManager + LocalStore + Consolidator |
-| `src/tree_sop_agent/adapters/conversation_compressor.py` | 升级 _make_summary 为 Flash LLM 模式 |
-| `src/tree_sop_agent/adapters/embedding_index.py` | 新增 add_conversation()，双索引 |
+| `src/agent_harness/core/__init__.py` | 导出 MemoryManager |
+| `src/agent_harness/orchestrator/memory.py` | **新建** — MemoryManager + LocalStore + Consolidator |
+| `src/agent_harness/adapters/conversation_compressor.py` | 升级 _make_summary 为 Flash LLM 模式 |
+| `src/agent_harness/adapters/embedding_index.py` | 新增 add_conversation()，双索引 |
 | `tests/test_memory.py` | **新建** — 5 个测试 |
 
 ## 5. Out of Scope

@@ -1,11 +1,11 @@
 """上下文压缩体系测试套件。"""
 import pytest
 from pathlib import Path
-from tree_sop_agent.adapters.repo_map import RepoMapBuilder, PySymbolExtractor
-from tree_sop_agent.adapters.conversation_compressor import ConversationCompressor
-from tree_sop_agent.adapters.embedding_index import EmbeddingIndex
-from tree_sop_agent.adapters.cache_engine import CacheEngine
-from tree_sop_agent.core.skill_def import SkillDef
+from agent_harness.adapters.repo_map import RepoMapBuilder, PySymbolExtractor
+from agent_harness.adapters.conversation_compressor import ConversationCompressor
+from agent_harness.adapters.embedding_index import EmbeddingIndex
+from agent_harness.adapters.cache_engine import CacheEngine
+from agent_harness.core.skill_def import SkillDef
 
 BUDGET_A = 500
 BUDGET_B = 50000

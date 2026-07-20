@@ -1,4 +1,4 @@
-# Tree-SOP Agent — Technical Whitepaper
+# AgentHarness — Technical Whitepaper
 
 > **Version**: Alpha 0.2 | **Last Updated**: 2026-07-15
 > **Status**: Architecture Design Document
@@ -7,7 +7,7 @@
 
 ## 1. System Architecture Overview
 
-Tree-SOP Agent is a **multi-agent orchestration framework** for vibe-coding workflows. It implements a **role-preset + skill-mounting** architecture: 11 pre-defined Agent roles (PM, Spec, Coding, Code-Review, TDD, Acceptance, Security, DevOps, Secretary, Trinity, LOOP SOP) form a complete software development pipeline. Users mount arbitrary SKILL.md files onto these Agents as knowledge augmentation.
+AgentHarness is a **multi-agent orchestration framework** for vibe-coding workflows. It implements a **role-preset + skill-mounting** architecture: 11 pre-defined Agent roles (PM, Spec, Coding, Code-Review, TDD, Acceptance, Security, DevOps, Secretary, Trinity, LOOP SOP) form a complete software development pipeline. Users mount arbitrary SKILL.md files onto these Agents as knowledge augmentation.
 
 ### 1.1 Layered Architecture
 
@@ -43,7 +43,7 @@ Each node produces a `HandoverPackage` consumed by the next node. LOOP SOP monit
 
 ## 2. Harness Engineering System
 
-The Harness is the **meta-control layer** that governs Agent behavior through three sub-systems: orchestration gating, constraint enforcement, and execution assurance. Unlike typical Agent frameworks that rely solely on prompt engineering, Tree-SOP Agent implements **hard constraints** at the harness level.
+The Harness is the **meta-control layer** that governs Agent behavior through three sub-systems: orchestration gating, constraint enforcement, and execution assurance. Unlike typical Agent frameworks that rely solely on prompt engineering, AgentHarness implements **hard constraints** at the harness level.
 
 ### 2.1 Orchestration Gating — LOOP SOP
 
@@ -310,7 +310,7 @@ The following extensions are in the specification phase (`IDEA-022`):
 
 ## 4. Comparative Analysis
 
-| Dimension | GPT (OpenAI) | Gemini (Google) | Claude (Anthropic) | **Tree-SOP Agent** |
+| Dimension | GPT (OpenAI) | Gemini (Google) | Claude (Anthropic) | **AgentHarness** |
 |-----------|:------------:|:---------------:|:------------------:|:------------------:|
 | **Metadata store** | Built-in session state | Structured KV | Project knowledge | Design phase (SQLite) |
 | **User profile** | Persistent, learnable | System instruction | CLAUDE.md | Design phase |
@@ -321,7 +321,7 @@ The following extensions are in the specification phase (`IDEA-022`):
 | **Cost optimization** | Prompt caching | Context caching (>32K) | Prompt caching | **✅ 4-layer memory + Flash/Pro routing** |
 | **Per-call cost** | Medium | Low (cached) | High (uncached) | **Very low (local SQLite + Flash)** |
 
-**Key differentiator**: Tree-SOP Agent is the only framework with a **hard-constraint Harness layer** (ToolGuard + LOOP SOP gates). All others rely on prompt-only soft constraints.
+**Key differentiator**: AgentHarness is the only framework with a **hard-constraint Harness layer** (ToolGuard + LOOP SOP gates). All others rely on prompt-only soft constraints.
 
 ---
 

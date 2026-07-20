@@ -3,7 +3,7 @@
 import pytest
 import tempfile
 import os
-from tree_sop_agent.orchestrator.memory import LocalStore, MemoryRouter, Consolidator
+from agent_harness.orchestrator.memory import LocalStore, MemoryRouter, Consolidator
 
 
 class TestLocalStore:

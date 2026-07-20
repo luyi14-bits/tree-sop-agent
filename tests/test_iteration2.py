@@ -6,12 +6,12 @@ import tempfile
 
 import pytest
 
-from tree_sop_agent.orchestrator import (
+from agent_harness.orchestrator import (
     ParallelOrchestrator,
     CheckpointManager,
     create_dev_workflow,
 )
-from tree_sop_agent.core.skill_def import HandoverPackage, SOPNode
+from agent_harness.core.skill_def import HandoverPackage, SOPNode
 
 
 class TestParallelOrchestrator:
@@ -129,7 +129,7 @@ class TestCacheGuard:
 
     def test_release_cache_hit_guard(self):
         """TestReleaseCacheHitGuard: 缓存命中率退化检测。"""
-        from tree_sop_agent.adapters.cache_engine import CacheEngine
+        from agent_harness.adapters.cache_engine import CacheEngine
 
         engine = CacheEngine()
 

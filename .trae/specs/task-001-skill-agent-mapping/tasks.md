@@ -3,7 +3,7 @@
 > 经 Trinity 精简审查：原 40 子任务 → 合并为 18 子任务（55% 削减），人天从 9→4.5。
 
 - [ ] Task 1: 项目骨架与模块结构
-  - [ ] 创建 `tree_sop_agent/` 包结构（`__init__.py`、`core/`、`adapters/`、`orchestrator/`、`cli/`）
+  - [ ] 创建 `agent_harness/` 包结构（`__init__.py`、`core/`、`adapters/`、`orchestrator/`、`cli/`）
   - [ ] 设计核心数据模型：SkillDef, AgentConfig, Session, Context, SOPNode
   - [ ] 配置管理模块：`settings.py`（Pydantic BaseSettings → DeepSeek API Key, model mapping）
 

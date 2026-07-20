@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from tree_sop_agent.core.skill_parser import SkillParser, SkillParseError
+from agent_harness.core.skill_parser import SkillParser, SkillParseError
 
 
 class TestSkillParser:

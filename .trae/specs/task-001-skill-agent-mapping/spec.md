@@ -21,7 +21,7 @@
 ## What Changes
 
 - **BREAKING** 全新项目，无向后兼容问题
-- 创建 `tree_sop_agent/` Python 包，包含 6 大模块
+- 创建 `agent_harness/` Python 包，包含 6 大模块
 - 定义 Skill frontmatter 格式规范（YAML frontmatter in Markdown）
 - 实现 Skill → Agent 映射引擎（加载→解析→实例化）
 - 实现 DeepSeek Pro/Flash 双模型策略（独立 session）
@@ -35,7 +35,7 @@
 ## Impact
 
 - Affected specs: 无（全新）
-- Affected code: 全新 `src/tree_sop_agent/` 目录
+- Affected code: 全新 `src/agent_harness/` 目录
 
 ---
 

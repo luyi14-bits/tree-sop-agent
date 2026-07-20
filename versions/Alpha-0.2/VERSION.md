@@ -1,4 +1,4 @@
-# Tree-SOP Agent Alpha 0.2
+# AgentHarness Alpha 0.2
 
 > 版本：Alpha 0.2 | 2026-07-15
 

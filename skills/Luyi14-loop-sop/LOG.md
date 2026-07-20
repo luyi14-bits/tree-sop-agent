@@ -30,7 +30,7 @@
   - 阶段 4（收敛）→ Secretary → versions/v0.1.0/ + CHANGELOG + 看板更新
 - **门禁全通**：G0→1 ✅ → G1→2 ✅ → G2→3 ✅ → G3→4 ✅ → G4→end ✅
 - **交付物**：
-  - `src/tree_sop_agent/` — 6 模块完整 Python 包
+  - `src/agent_harness/` — 6 模块完整 Python 包
   - `auto_test.py` — CLI 自测脚本（7/7 通过）
   - `tests/` — pytest 套件（22/22 全绿）
   - `docs/acceptance-report-task-001.md` — 验收报告

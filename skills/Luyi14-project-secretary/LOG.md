@@ -57,10 +57,10 @@
   - 迭代 13 (IDEA-021): CircuitBreaker + DriftDetector
   - 全量测试 62/62 通过
 - **涉及文件**：
-  - `src/tree_sop_agent/orchestrator/memory.py`（新建）
-  - `src/tree_sop_agent/orchestrator/intent_router.py`（新建）
-  - `src/tree_sop_agent/orchestrator/circuit_breaker.py`（新建）
-  - `src/tree_sop_agent/core/config_manager.py`（新建）
+  - `src/agent_harness/orchestrator/memory.py`（新建）
+  - `src/agent_harness/orchestrator/intent_router.py`（新建）
+  - `src/agent_harness/orchestrator/circuit_breaker.py`（新建）
+  - `src/agent_harness/core/config_manager.py`（新建）
   - `PIPELINE_KANBAN.md`（想法池归零）
 - **验证**：62/62 全部通过，全量打包成功
 
