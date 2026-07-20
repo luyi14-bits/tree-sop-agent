@@ -1,6 +1,6 @@
 # 管线看板
 
-> 最后更新：2026-07-20（第二十一轮：新增 IDEA-049 外部 Agent 兼容层 + 双模定位确认） | 维护人：项目秘书
+> 最后更新：2026-07-20（第二十二轮：DeepSeek 深度优化优先 + 新增 IDEA-050/051） | 维护人：项目秘书
 > 数据来源：需求对话 + 调研报告 + Reasonix 源码分析 + DeepSeek API 文档 + 2026 框架技术路线调研
 
 ---
@@ -9,7 +9,7 @@
 
 | 💡 想法池 | 📝 规划中 | 🔨 开发中 | ✅ 验收中 | 🚀 已发布 | ❌ 废弃 |
 |-----------|-----------|-----------|-----------|-----------|---------|
-| 12 项 | 0 项 | 0 项 | 0 项 | 12 项 | 3 项 |
+| 14 项 | 0 项 | 0 项 | 0 项 | 12 项 | 3 项 |
 
 ---
 
@@ -198,16 +198,43 @@
 - **优先级**：P0（框架化基石）
 - **状态**：等待 Spec
 
-### IDEA-037：LLM Provider 抽象层
-- **来源**：2026 框架技术路线调研 — 对标 Spring AI ChatClient
-- **描述**：抽象 LLM 调用层，从 DeepSeek 专用扩展为多模型适配（DeepSeek / OpenAI / Anthropic / Ollama），同时保留 DeepSeek 缓存优化作为差异化特性
-- **对标**：Spring AI 的统一 ChatClient 接口 + PydanticAI 的模型无关设计
+### IDEA-037：DeepSeek 深度优化包
+- **来源**：awesome-deepseek-agent 对标 — 目标进入官方推荐列表
+- **描述**：聚焦 DeepSeek V4 极致优化，暂缓多模型抽象。把 DS 优化到标杆水平后再做泛化
+- **对标**：Reasonix / Pi / Deep Code — deepseek-chat 官方生态
 - **核心技术点**：
-  - LLMProvider 抽象基类：chat / chat_stream / embed / function_call
-  - DeepSeekProvider：保留前缀 hash 缓存优化 + reasoning_content 处理
-  - OpenAIProvider / AnthropicProvider：标准适配
-  - 模型分配策略：per-agent model binding（Pro/Flash 混用）
-- **优先级**：P0（框架化基石）
+  - reasoning_effort 可配置接口（对标 Pi thinkingLevelMap / Deep Code reasoningEffort）
+  - reasoning_content 精准处理 + token 计量（已有，需增强）
+  - DeepSeek 专用参数透传（top_p、frequency_penalty 等）
+  - thinking 模式下 token 预算控制
+  - 多模型抽象延后到 v2
+- **优先级**：P0（DS 优先，官方曝光）
+- **状态**：等待 Spec
+
+### IDEA-050：DeepSeek 成本感知调度
+- **来源**：awesome-deepseek-agent — Reasonix flash-first cost control
+- **描述**：在 ModelRouter 基础上增加成本感知层。默认 Flash，Token 预算内自动，复杂度超阈值自动升级 Pro
+- **对标**：Reasonix — 默认 Flash /pro /preset max
+- **核心技术点**：
+  - 默认策略：所有 Agent 默认用 Flash，Token 预算内自动
+  - 智能切换：复杂度检测 → 自动升级到 Pro（类似 Reasonix /pro）
+  - 成本追踪：每次 API 调用记录 token 消耗 + 费用
+  - 预算上限：session 级 / 月度 Token 预算，超限熔断
+  - 缓存节省可视化：每次请求展示 Cache Hit/Miss 费用对比
+- **优先级**：P0
+- **状态**：等待 Spec
+
+### IDEA-051：自动 Tool-Call Repair
+- **来源**：awesome-deepseek-agent — Reasonix automatic tool-call repair
+- **描述**：DeepSeek Function Calling 返回格式错误时自动修复，而非直接失败
+- **对标**：Reasonix — 内置 tool-call repair，DeepSeek API 兼容性自愈
+- **核心技术点**：
+  - JSON 解析修复：FC 返回非标准 JSON 时自动纠正常见错误
+  - 参数补齐：缺失必填参数时，基于上下文推断默认值
+  - 重试策略：修复失败 → 错误注入下一轮 prompt，最多重试 3 次
+  - 降级路径：FC 反复失败 → 降级为纯文本模式
+- **优先级**：P1
+- **状态**：等待 Spec
 - **状态**：等待 Spec
 
 ### IDEA-038：OpenTelemetry 可观测性接入
@@ -315,7 +342,7 @@
 
 ## 📝 规划中
 
-> 优先级 P0 任务：IDEA-037 LLM Provider / IDEA-036 公开 API / IDEA-049 外部 Agent 兼容 / IDEA-044 MCP 协议 / IDEA-041 Loop Engineering
+> 优先级 P0 任务：IDEA-037 DS 深度优化 / IDEA-050 成本感知 / IDEA-036 公开 API / IDEA-049 外部 Agent 兼容 / IDEA-044 MCP 协议 / IDEA-051 Tool-Call Repair / IDEA-041 Loop Engineering
 
 ---
 
