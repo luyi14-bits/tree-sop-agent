@@ -4,7 +4,7 @@
 
 **🏗️ 自研多 Agent 编排框架 —— 13 个预设角色、4 层记忆、硬约束 Harness**
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python)](https://python.org)
 [![DeepSeek](https://img.shields.io/badge/LLM-DeepSeek_V4-4B32C3)](https://deepseek.com)
 
@@ -59,14 +59,15 @@ AgentHarness 是一个**自研的多 Agent 编排框架**，对标 CrewAI / Meta
 ## 🆚 与同类项目的关键差异
 
 | 维度 | CrewAI | MetaGPT | AutoGPT | OpenHands | **AgentHarness** |
-|------|:------:|:-------:|:-------:|:---------:|:------------------:|
-| **硬约束层** | ❌ prompt-only | ❌ prompt-only | ❌ prompt-only | ❌ prompt-only | ✅ **ToolGuard + LOOP SOP 5 级门禁** |
-| **角色体系** | 通用可定义 | 软件公司模拟 | 单 Agent | 编码 Agent | ✅ **11 个预设角色 + 自定义挂载** |
-| **记忆架构** | 短期记忆 | 消息共享 | 向量存储 | 对话上下文 | ✅ **四层记忆 + 五层压缩** |
-| **缓存优化** | — | — | — | — | ✅ **前缀 hash 不变性 + 三层 Context 分区** |
-| **失败处理** | 手动重试 | 手动重试 | 循环重试 | 无内置 | ✅ **自动降级 + 熔断器 + 检查点恢复** |
-| **桌面应用** | ❌ | ❌ | ❌ | ❌ | ✅ **Tauri v2 + Monaco + xterm.js** |
-| **开源协议** | MIT | MIT | Apache 2.0 | MIT | **AGPL v3** |
+| 维度 | CrewAI | MetaGPT | AutoGPT | OpenHands | Omnigent | **AgentHarness** |
+|------|:------:|:-------:|:-------:|:---------:|:--------:|:------------------:|
+| **硬约束层** | ❌ prompt-only | ❌ prompt-only | ❌ prompt-only | ❌ prompt-only | Policy 审批（事后） | ✅ **ToolGuard + 5 级门禁（事前）** |
+| **Harness 层级** | ❌ | ❌ | ❌ | ❌ | Meta-harness（外层套壳） | ✅ **内置框架级硬约束** |
+| **角色体系** | 通用可定义 | 软件公司模拟 | 单 Agent | 编码 Agent | 外部 Agent 驱动 | ✅ **13 个预设角色 + 自定义挂载** |
+| **记忆架构** | 短期记忆 | 消息共享 | 向量存储 | 对话上下文 | 会话同步 | ✅ **四层记忆 + 五层压缩** |
+| **缓存优化** | — | — | — | — | — | ✅ **前缀 hash 不变性 + 三层 Context 分区** |
+| **失败处理** | 手动重试 | 手动重试 | 循环重试 | 无内置 | 降级策略 | ✅ **自动降级 + 熔断器 + 检查点恢复** |
+| **开源协议** | MIT | MIT | Apache 2.0 | MIT | Apache 2.0 | **MIT** |
 
 ---
 
@@ -175,9 +176,9 @@ agent-harness/
 
 ## 📄 开源协议
 
-[GNU Affero General Public License v3.0](LICENSE)
+[MIT License](LICENSE)
 
-> AGPL v3 要求：如果你修改了本项目并作为网络服务提供，你必须公开修改后的源代码。
+Copyright (c) 2026 AgentHarness Contributors
 
 ---
 

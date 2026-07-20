@@ -109,6 +109,19 @@ Tool Plane:            MCPClient · ToolGuard · RepoMap · EmbeddingIndex · Ca
 | **生态** | 前端全栈 | LLM 深度集成 |
 | **角色** | 通用 Agent | 预制 + 自定义 |
 
+### 3.6 Omnigent (7.5k★)
+
+| 维度 | Omnigent | AgentHarness |
+|------|----------|--------------|
+| **定位** | Meta-harness — 在已有 Agent 外加统一层 | 内置 Harness — 框架自带硬约束 |
+| **Agent 来源** | 外部（Claude Code/Codex/Pi） | 自产（13 预设 + Skill 挂载） |
+| **硬约束** | Policy 审批（事后拦截） | ToolGuard（**事前**拦截） |
+| **Harness 层级** | 外层套壳 | **框架级内置** |
+| **编排** | 会话级协作 | SOP 管道 + 5 级门禁 |
+| **记忆** | 会话同步 | 四层体系（CacheEngine→SQLite） |
+
+**一句话差异**：Omnigent 是"给别人的 Agent 套缰绳"，AgentHarness 是"自己的 Agent 自带缰绳"。
+
 ---
 
 ## 4. 关键维度矩阵
